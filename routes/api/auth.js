@@ -1,5 +1,6 @@
 const express = require("express");
-const _ = express.Router()
+const _ = express.Router();
+const User = require("../../models/user.js");
 
 
 _.post('/register', (req, res)=> {
@@ -16,7 +17,7 @@ _.post('/register', (req, res)=> {
     if(!lastName){
         return res.json({error:"you must be enter your lastname"})
     }
-    
+
     if(!phoneNumber){
         return res.json({error:"you must be enter your phonenumber"})
     }
