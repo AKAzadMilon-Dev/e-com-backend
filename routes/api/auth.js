@@ -3,14 +3,22 @@ const _ = express.Router()
 
 
 _.post('/register', (req, res)=> {
-    const {email, fullname, password, isSubscribe} = req.body
+    const {email, firstName, lastName, phoneNumber, password} = req.body
 
     if(!email){
         return res.json({error:"you must be enter your email!"})
     }
 
-    if(!fullname){
-        return res.json({error:"you must be enter your fullname"})
+    if(!firstName){
+        return res.json({error:"you must be enter your firstname"})
+    }
+
+    if(!lastName){
+        return res.json({error:"you must be enter your lastname"})
+    }
+    
+    if(!phoneNumber){
+        return res.json({error:"you must be enter your phonenumber"})
     }
 
     if(!password){
