@@ -16,8 +16,18 @@ _.post('/register', (req, res)=> {
     if(!password){
         return res.json({error:"you must be enter your password"})
     }
+
+    const user = new User({
+        email,
+        firstName,
+        lastName,
+        phoneNumber,
+        password
+    })
+
+    user.save()
     
-    res.json({email, fullname, password, isSubscribe})
+    res.json(user)
 })
 
 module.exports = _;

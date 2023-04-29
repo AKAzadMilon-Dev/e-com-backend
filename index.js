@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const app = express()
 const cors = require('cors')
+const dbSetup = require('./config/dbConfig')
 const routes = require("./routes");
 
 console.log(process.env.BASE_URL)
@@ -9,6 +10,7 @@ console.log(process.env.BASE_URL)
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cors())
+dbSetup()
 
 app.use(routes)
 
